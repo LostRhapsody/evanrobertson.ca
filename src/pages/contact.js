@@ -3,13 +3,15 @@ import Layout from "../components/layout"
 import "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
+import { graphql } from "gatsby"
 
 export default function IndexPage({ data }) {
     return (
         <Layout>
-            <SEO title="About" />
+            <SEO title="Contact" />
             <div style={{
                 width: '100%',
+                height:'28rem',
                 margin: 'auto',
                 justifyContent: 'center',
                 display: 'flex',
