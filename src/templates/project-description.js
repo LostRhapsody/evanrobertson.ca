@@ -2,14 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
-export default function DemoFeature({ data }) {
+export default function ProjectDescription({ data }) {
   const post = data.markdownRemark
   return (
     <Layout>
-      <div>
+      <div style={{
+          textAlign:'center',
+      }}>
+        <SEO title={post.frontmatter.title} description={post.frontmatter.excerpt}/>
         <h1>{post.frontmatter.title}</h1>
-        <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
+        <Img fixed={post.frontmatter.featuredImage.childImageSharp.fixed} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
@@ -24,12 +28,13 @@ export const query = graphql`
         title
         featuredImage {
             childImageSharp {
-              fluid(maxWidth:600) {
-                ...GatsbyImageSharpFluid
+              fixed(width:900) {
+                ...GatsbyImageSharpFixed
               }
             }
           }
       }
+      excerpt
     }
   }
 `
