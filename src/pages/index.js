@@ -1,22 +1,53 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
+import Gallery from "../templates/gallery"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+export default function IndexPage({ data }) {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <h1 style={{ textAlign: 'center' }}>I'm Evan, North Bay based Web and Brand Designer</h1>
+      <p style={{ textAlign: 'center' }}>I specialize in front end web design using React and Gatsby to create fast, informative, and modern designs.</p>
+      <p style={{ textAlign: 'center' }}>Web and Brand design go hand in hand. A website is the virtual face of your company. Bundling these together ensures uniformity and user satisfaction</p>
+      <Gallery>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div style={{ padding: 20, width: 'auto' }}>
+            <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
+              <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
+              <h3 className="galleryTitle">{node.frontmatter.title}{" "}</h3>
+            </Link>
+          </div>
+        ))}
+      </Gallery>
+    </Layout>
+  )
+}
 
-export default IndexPage
+export const query = graphql`
+{
+  allMarkdownRemark {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth:600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}
+`

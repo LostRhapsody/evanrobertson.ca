@@ -1,0 +1,16 @@
+.footer-nav {
+    text-decoration: none;
+    color:white;
+    display: block;
+    padding: .5rem 1rem;
+
+}
+
+.footer-links:hover {
+    text-decoration:underline;
+}
+
+.footer-links {
+    text-decoration: none;
+    color:white;
+}
