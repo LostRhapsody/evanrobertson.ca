@@ -4,28 +4,33 @@ import "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+
+
 
 export default function IndexPage({ data }) {
     return (
         <Layout>
             <SEO title="Contact" />
-            <div style={{
-                width: '100%',
-                height:'28rem',
-                margin: 'auto',
-                justifyContent: 'center',
-                display: 'flex',
-            }}>
-                <h1 style={{
-                    paddingTop: '50px',
-                }}>Let's Talk</h1>
-                <Img fixed={data.file.childImageSharp.fixed} />
-            <h2 className="contact-h2" style={{ float: 'left' }}>
+            <Container>
+                <Row>
+                    <Col>
+                <h1>Let's Talk</h1>
+                </Col>
+                <Col>
+                <Img fluid={data.file.childImageSharp.fluid} />
+                </Col>
+                <Col>
+                <h2>
                     Interested in working together?<br />
                     Send an inquiry to<br />
                     admin@evanrobertson.ca anytime<br />
                     to learn more and get a quote</h2>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </Layout>
     )
 }
@@ -34,8 +39,8 @@ export const query = graphql`
 query {
     file(relativePath: { eq: "phone-contact-page.png" }) {
       childImageSharp {
-           fixed(width: 250, height: 250) {
-          ...GatsbyImageSharpFixed
+           fluid(maxWidth: 250, maxHeight: 250) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
