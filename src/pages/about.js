@@ -3,31 +3,24 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
+import  Container from "react-bootstrap/Container"
+import  Col  from "react-bootstrap/Col"
+import  Row from "react-bootstrap/Row"
 
 export default function IndexPage({ data }) {
     return (
         <Layout>
             <SEO title="About" />
-            <div style={{
-                width: '900px',
-                margin: 'auto',
-                textAlign: 'center',
-            }}>
+            <Container>
                 <h1 style={{ textAlign: 'center' }}>Freelance Web and Brand Design</h1>
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'auto auto',
-                        gridAutoRows: 'min-content',
-                        columnGap:'50px'
-                    }}>
-                    <div className="col">
+                <Row>
+                    <Col>
                         <Img fixed={data.file.childImageSharp.fixed}
                             style={{
                                 borderRadius: '50%',
                             }} />
-                    </div>
-                    <div className="col">
+                    </Col>
+                    <Col>
                         <p style={{textAlign:'left'}}>
                             Hi, I'm Evan, a freelance web designer.<br /><br />
                             I'm a computer programming student with my sights set on developing advanced AI.
@@ -35,9 +28,9 @@ export default function IndexPage({ data }) {
                             My process goes beyond using a clunky website builder to achieve professional results.<br /><br />
                             I specialize in front end development using React and Gatsby to create fast, informative, and modern designs.<br /><br />
                             In my free time I focus on my pet project ItsLiBerry, an online community for readers and authors to share their stories and, hopefully, make money doing it. </p>
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </Layout>
     )
 }
