@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import "./footer.css"
 
-const Footer = ({ siteTitle }) => (
+const Footer = () => (
     <footer
         style={{
             width: '100%',
