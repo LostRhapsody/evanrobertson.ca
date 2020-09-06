@@ -18,6 +18,7 @@ export default function IndexPage({ data }) {
                         <Img fluid={data.file.childImageSharp.fluid}
                             style={{
                                 borderRadius: '50%',
+                                width:"375px",
                             }} />
                     </Col>
                     <Col>
