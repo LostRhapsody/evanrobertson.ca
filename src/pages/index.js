@@ -11,32 +11,43 @@ export default function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1 id="Introduction" style={{ textAlign: 'center' }}>I'm Evan, North Bay based<br />Web and Brand Designer</h1>
-      <h1 id="Introduction320" style={{ textAlign: 'center'}}>Evan - North Bay<br />Web Designer</h1>
+      <h1 id="Introduction" style={{ textAlign: 'center',borderBottom:"2px solid black" }}>I'm Evan, North Bay based<br />Web and Brand Designer</h1>
+      <h1 id="Introduction320" style={{ textAlign: 'center',borderBottom:"2px solid black" }}>Evan - North Bay<br />Web Designer</h1>
+      <h2 style={{textAlign:"center",}}>Portfolio</h2>
       <Container id="gallery-lg" style={{
-        padding:25,
+        padding: 25,
       }}>
-        <Row>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Col>
-            <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
-              <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} className="galleryImg" />
-              <h3 className="galleryTitle">{node.frontmatter.title}{" "}</h3>
-            </Link>
-        </Col>
+          <Row style={{
+            backgroundColor:"hsl(0, 0%, 97%)",
+            border:"1px solid hsl(0,0%,95%)",
+          }}>
+            <Col style={{
+              width: "50%",
+            }}>
+              <h4>{node.excerpt}</h4>
+            </Col>
+            <Col style={{
+              width: "50%",
+            }}>
+              <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
+                <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} className="galleryImg" />
+                <h3 className="galleryTitle">{node.frontmatter.title}{" "}</h3>
+              </Link>
+            </Col>
+          </Row>
         ))}
-        </Row>
       </Container>
       <Container id="gallery-sm" style={{
-        padding:25,
+        padding: 25,
       }}>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Col>
+          <Col>
             <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
               <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} className="galleryImg" />
-              <h3 className="galleryTitle">{node.frontmatter.title}{" "}</h3>
+              <h2 className="galleryTitle">{node.frontmatter.title}{" "}</h2>
             </Link>
-        </Col>
+          </Col>
         ))}
       </Container>
     </Layout>
@@ -62,6 +73,7 @@ export const query = graphql`
         fields {
           slug
         }
+        excerpt
       }
     }
   }

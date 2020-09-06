@@ -13,6 +13,7 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,6 +28,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
+    <Helmet >
+      <script src="https://kit.fontawesome.com/0b48b1556e.js" crossorigin="anonymous"></script>
+    </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
       >

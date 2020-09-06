@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -11,9 +11,24 @@ export default function ProjectDescription({ data }) {
         <Layout>
             <Container>
                 <SEO title={post.frontmatter.title} description={post.frontmatter.excerpt} />
-                <h1>{post.frontmatter.title}</h1>
-                <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
+                <h1 style={{
+                    backgroundColor: "hsl(0, 0%, 97%)",
+                    marginBottom: 0,
+                    position: "relative",
+                    textAlign:"center",
+                }}>
+                    {post.frontmatter.title}</h1>
+                <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+                    style={{
+                        border: "3px solid hsl(0, 0%, 95%)"
+                    }} />
+                <br />
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <div style={{ textAlign: "center", paddingTop: 10, paddingBottom: 30 }}>
+                    <Link to="/">
+                    <i style={{ transform: "scale(3)",color:"black", }} class="fas fa-chevron-circle-left"></i>
+                    </Link>
+                </div>
             </Container>
         </Layout>
     )

@@ -703,9 +703,15 @@ pre tt:after {
   #gallery-sm {
     display:none;
   }
+  #about-sm {
+    display:none;
+  }
 }
 @media only screen and (max-width: 543px) {
   #gallery-lg {
+    display: none;
+  }
+  #about-lg {
     display: none;
   }
 }
