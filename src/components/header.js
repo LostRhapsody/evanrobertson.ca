@@ -12,13 +12,13 @@ const Header = ({ siteTitle }) => (
       <Navbar.Collapse id="navbarResponsive">
         <Nav className="ml-auto">
           <Nav.Item>
-            <Link to="/" className="nav-link header-links" activeClassName="active">Portfolio</Link>
+            <Link to="/" className="nav-link" activeClassName="active">Portfolio</Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="/about" className="nav-link header-links" activeClassName="active">About</Link>
+            <Link to="/about" className="nav-link" activeClassName="active">About</Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="/contact" className="nav-link header-links-box" activeClassName="active">Let's Talk</Link>
+            <Link to="/contact" className="nav-link box" activeClassName="active">Let's Talk</Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>
