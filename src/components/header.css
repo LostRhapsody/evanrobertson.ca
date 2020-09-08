@@ -1,6 +1,5 @@
 .nav-link {
-  color: black;
-  padding: 0.5rem 1rem;
+  color: black !important;
   text-decoration: none;
   background-color: transparent;
 }
@@ -8,15 +7,19 @@
 .active,
 .nav-link:hover,
 .nav-link:focus {
-  text-decoration-color: black;
-  text-decoration: underline;
+  color:black !important;
+  text-decoration-color: black !important;
+  text-decoration: underline !important;
 }
 
 .box {
-  background-color: black;
-  color: white;
+  background-color: black !important;
+  color: white !important;
 }
 
+.box:focus,
 .box:hover {
-  color: white !important;
+  color:white !important;
+  text-decoration-color: White !important;
+  text-decoration: underline !important;
 }
