@@ -74,7 +74,6 @@ export const query = graphql`
       html
       frontmatter {
         title
-        description
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 1920, maxHeight: 1080) {
@@ -83,7 +82,6 @@ export const query = graphql`
           }
         }
       }
-      excerpt
     }
   }
 `
