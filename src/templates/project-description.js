@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container"
 class ProjectDescriptionTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
     const image = post.frontmatter.image
       ? post.frontmatter.image.childImageSharp.resize
       : null
