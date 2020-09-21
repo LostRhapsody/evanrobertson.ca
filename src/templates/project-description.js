@@ -62,12 +62,6 @@ export default ProjectDescriptionTemplate
 
 export const query = graphql`
   query ProjectDescriptionBySlug($slug: String!) {
-      site {
-          siteMetedata {
-              title
-              author
-          }
-      }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
