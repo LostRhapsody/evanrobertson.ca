@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Evan Robertson`,
     description: `Web and Brand Design`,
-    url: "https://evanrobertson.ca",
+    siteUrl: "https://evanrobertson.ca",
     image: "/images/profile.jpg",
     author: `@evanrobertson.ca`,
   },
