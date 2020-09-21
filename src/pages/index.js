@@ -6,11 +6,17 @@ import Img from "gatsby-image"
 import Container from "react-bootstrap/Container"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
+import { Helmet } from "react-helmet"
 
 export default function IndexPage({ data }) {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Evan Robertson Web and Brand Design"
+           description="Custom Web and Brand Design for local business and artists"
+       />
+       <Helmet>
+         <link rel="canonical" href="https://evanrobertson.ca/" />
+       </Helmet>
       <h1 id="Introduction" style={{ textAlign: 'center',borderBottom:"2px solid black" }}>I'm Evan, North Bay based<br />Web and Brand Designer</h1>
       <h1 id="Introduction320" style={{ textAlign: 'center',borderBottom:"2px solid black" }}>Evan - North Bay<br />Web Designer</h1>
       <h2 style={{textAlign:"center",}}>Portfolio</h2>
