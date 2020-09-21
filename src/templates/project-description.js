@@ -12,7 +12,7 @@ class ProjectDescriptionTemplate extends React.Component {
       ? post.frontmatter.image.childImageSharp.resize
       : null
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
